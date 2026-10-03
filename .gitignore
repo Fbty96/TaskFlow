@@ -1,1 +1,12 @@
+# dépendances
+**/node_modules/
+
+# secrets
+**/.env
+**/.env.local
+
+# build frontend
+**/dist/
+
+# divers
 .DS_Store
