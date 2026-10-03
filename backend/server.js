@@ -21,7 +21,14 @@ async function demarrer() {
   await connecterDB();
 
   const app = express();
-  app.use(cors());
+  const corsOptions = {
+  origin: [
+    'http://localhost:5173',              // pour continuer à développer en local
+    process.env.FRONTEND_URL              // votre frontend déployé sur Vercel
+  ].filter(Boolean),
+  credentials: true
+};
+app.use(cors(corsOptions));
   app.use(express.json());
 
   app.use((req, res, next) => {
