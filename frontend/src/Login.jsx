@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Logo from './Logo'
+import { API_URL } from './config'
 
 function Login({ onLoginSuccess, onBasculerVersRegister }) {
   const [email, setEmail] = useState('')
@@ -10,7 +11,7 @@ function Login({ onLoginSuccess, onBasculerVersRegister }) {
     e.preventDefault()
     setErreur('')
 
-    fetch('http://localhost:5002/auth/login', {
+    fetch(`${API_URL}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, motDePasse })
